@@ -30,5 +30,19 @@ class TrainTableSeeder extends Seeder
 
             $train->save();
         }
+
+        $train = new Train();
+
+            $train->agency = $faker->company();
+            $train->departure_station = $faker->city();
+            $train->arrival_station = $faker->city();
+            $train->departure_date = today();
+            $train->arrival_date = today();
+            $train->train_num = $faker->randomNumber(5, true);
+            $train->carriages = $faker->randomNumber(2, false);
+            $train->is_on_schedule = $faker->boolean();
+            $train->is_deleted = $faker->boolean();
+
+            $train->save();
     }
 }

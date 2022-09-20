@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trains</title>
 </head>
-<body>
-    @if($trains)      
-            @foreach($trains as $train)
+<body>    
+    @forelse($trains as $train)
             <p>Agenzia: {{ $train->agency }}</p>
             <p>Stazione di partenza: {{ $train->departure_station }}</p>
             <p>Stazione di arrivo: {{ $train->arrival_station }}</p>
@@ -19,9 +18,8 @@
             <p>In Ritardo: {{ $train->is_on_schedule }}</p>
             <p>Cancellato: {{ $train->is_deleted }}</p>
             <hr>
-            @endforeach
-    @else
+    @empty
         <h2>Nessun treno disponibile, riprovare.</h2>
-    @endif
+    @endforelse
 </body>
 </html>
